@@ -222,13 +222,16 @@
     <nav>
         <div class="container nav-inner">
             <div class="brand">
-                <div class="logo-mark">S<span class="sun">☀️</span>l<span class="arrow">↑</span>ø</div>
+                <div class="logo-mark">
+                    <img src="images/logo.png" alt="Sollo Logo" style="height:58px; width:auto;">
+                </div>
                 <div class="logo-text">Sollo — Wir sind über dem Durchschnitt</div>
             </div>
             <div class="nav-links">
-                <a href="#features">Produkt</a>
+                <a href="#features">Features</a>
                 <a href="#for-business">Für Unternehmen</a>
                 <a href="#for-home">Für Zuhause</a>
+                <a href="#products">Unsere Produktübersicht</a>
                 <a class="btn" href="#contact">Kontakt</a>
             </div>
         </div>
@@ -273,28 +276,37 @@
                     </div>
 
                     <!-- Balken -->
-                    <div style="display:flex;justify-content:space-between;margin-top:16px;gap:24px;align-items:flex-end;height:200px;">
+                    <div
+                        style="display:flex;justify-content:space-between;margin-top:16px;gap:24px;align-items:flex-end;height:200px;">
                         <!-- Privathaushalt nur Dach-Solar -->
                         <div style="flex:1;text-align:center;">
-                            <div style="width:60px;height:140px;margin:0 auto;background:#90CAF9;border-radius:4px 4px 0 0;"></div>
+                            <div
+                                style="width:60px;height:140px;margin:0 auto;background:#90CAF9;border-radius:4px 4px 0 0;">
+                            </div>
                             <div style="font-size:12px;color:var(--muted);margin-top:4px;">~1.400 kWh</div>
                         </div>
 
                         <!-- Privathaushalt Dach + Solarrollo -->
                         <div style="flex:1;text-align:center;">
-                            <div style="width:60px;height:170px;margin:0 auto;background:var(--sun);border-radius:4px 4px 0 0;"></div>
+                            <div
+                                style="width:60px;height:170px;margin:0 auto;background:var(--sun);border-radius:4px 4px 0 0;">
+                            </div>
                             <div style="font-size:12px;color:var(--muted);margin-top:4px;">~1.700 kWh</div>
                         </div>
 
                         <!-- Bürogebäude nur Dach-Solar -->
                         <div style="flex:1;text-align:center;">
-                            <div style="width:60px;height:144px;margin:0 auto;background:#81C784;border-radius:4px 4px 0 0;"></div>
+                            <div
+                                style="width:60px;height:144px;margin:0 auto;background:#81C784;border-radius:4px 4px 0 0;">
+                            </div>
                             <div style="font-size:12px;color:var(--muted);margin-top:4px;">~14.400 kWh</div>
                         </div>
 
                         <!-- Bürogebäude Dach + Solarrollo -->
                         <div style="flex:1;text-align:center;">
-                            <div style="width:60px;height:184px;margin:0 auto;background:var(--green);border-radius:4px 4px 0 0;"></div>
+                            <div
+                                style="width:60px;height:184px;margin:0 auto;background:var(--green);border-radius:4px 4px 0 0;">
+                            </div>
                             <div style="font-size:12px;color:var(--muted);margin-top:4px;">~18.400 kWh</div>
                         </div>
                     </div>
@@ -324,7 +336,8 @@
                     <h3>Technische Eckdaten (Beispiel)</h3>
                     <p><strong>Lamellenbreite:</strong> 50–80 mm • <strong>Leistung pro Lamelle:</strong> ~3–8 W (je
                         nach Größe) • <strong>Lebenserwartung:</strong> 10–15 Jahre</p>
-                    <p style="color:var(--muted);font-size:13px">(Genauere Spezifikationen werden in der Produktbroschüre aufgeführt.)</p>
+                    <p style="color:var(--muted);font-size:13px">(Genauere Spezifikationen werden in der
+                        Produktbroschüre aufgeführt.)</p>
                 </div>
             </div>
         </section>
@@ -361,10 +374,69 @@
                 </div>
                 <div class="card">
                     <h3>Fördermöglichkeiten</h3>
-                    <p>Viele Energieberatungen und staatliche Förderprogramme unterstützen Nachrüstlösungen — wir helfen beim Antrag.</p>
+                    <p>Viele Energieberatungen und staatliche Förderprogramme unterstützen Nachrüstlösungen — wir helfen
+                        beim Antrag.</p>
                 </div>
             </div>
         </section>
+
+        <section id="products">
+            <h2>Unsere Produktübersicht</h2>
+            <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+                <!-- Produkt 1: Solarrollos zum Einbau -->
+                <div class="card">
+                    <img src="images/sollo-install.png" alt="Sollo zum Einbau" style="width:100%;border-radius:12px;">
+                    <h3>Sollo zum Einbau</h3>
+                    <p>Unsere Solarrollos für Neubauten: direkt in die Fenster integriert, erzeugen Energie und
+                        Schatten.</p>
+                    <a href="#contact" class="btn" style="display:block;text-align:center;margin-top:12px;">Kaufen</a>
+                </div>
+
+                <!-- Produkt 2: Nachrüstkit -->
+                <div class="card">
+                    <img src="images/sollo-retrofit.png" alt="Nachrüstkit" style="width:100%;border-radius:12px;">
+                    <h3>Nachrüstkit</h3>
+                    <p>Rüste bestehende Rollos mit Solar nach. Schnell, flexibel und ohne großen Umbau.</p>
+                    <a href="#contact" class="btn" style="display:block;text-align:center;margin-top:12px;">Kaufen</a>
+                </div>
+
+                <!-- Produkt 3: Sollo auf Maß -->
+                <div class="card">
+                    <img src="images/sollo-custom.png" alt="Sollo auf Maß" style="width:100%;border-radius:12px;">
+                    <h3>Sollo auf Maß</h3>
+                    <p>Individuelle Lösungen nach Maß für spezielle Fenster oder Fassaden. Wir erstellen ein
+                        persönliches Angebot.</p>
+                    <a href="#contact" class="btn" style="display:block;text-align:center;margin-top:12px;">Angebot
+                        anfragen</a>
+                </div>
+
+                <!-- Produkt 4: Sollo für Unternehmen -->
+                <div class="card">
+                    <img src="images/sollo-business.png" alt="Sollo für Unternehmen"
+                        style="width:100%;border-radius:12px;">
+                    <h3>Sollo für Unternehmen</h3>
+                    <p>Skalierbare Fassadenlösungen für Büros, Schulen und Hotels. Senkt Energiekosten und steigert
+                        Nachhaltigkeit.</p>
+                    <a href="#contact" class="btn" style="display:block;text-align:center;margin-top:12px;">Angebot
+                        anfragen</a>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            @media (max-width:980px) {
+                .grid-3 {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width:560px) {
+                .grid-3 {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+
 
         <section>
             <div class="cta-banner">
