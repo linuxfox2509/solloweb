@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sollo — Wir sind über dem Durchschnitt</title>
+    <meta name="description"
+        content="Sollo — Solarrollos zum Nachrüsten für Unternehmen und Familien. Energie sparen, Komfort gewinnen." />
+    <style>
+        :root {
+            --sun: #FFD740;
+            --green: #4CAF50;
+            --dark: #212121;
+            --muted: #6b6b6b;
+            --bg: #f7f8fb;
+            --maxw: 1100px;
+            --radius: 12px;
+            font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--dark);
+            line-height: 1.5
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 6px 20px rgba(33, 33, 33, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 40
+        }
+
+        .container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 24px
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .logo-mark {
+            font-weight: 700;
+            font-size: 20px
+        }
+
+        .logo-mark .sun {
+            color: var(--sun)
+        }
+
+        .logo-mark .arrow {
+            transform: translateY(-3px);
+            font-weight: 900
+        }
+
+        .logo-text {
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            align-items: center
+        }
+
+        .btn {
+            background: var(--dark);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 10px;
+            text-decoration: none
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 480px;
+            gap: 32px;
+            align-items: center;
+            padding: 64px 0
+        }
+
+        .hero-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: 0 12px 36px rgba(33, 33, 33, 0.06)
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 0 0 12px
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 0 0 20px
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 12px
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 22px
+        }
+
+        .feat {
+            background: #fff;
+            padding: 14px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(33, 33, 33, 0.04);
+            text-align: center
+        }
+
+        .feat h4 {
+            margin: 8px 0 6px
+        }
+
+        .device {
+            background: linear-gradient(180deg, #e9f5ff, white);
+            border-radius: 12px;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 320px;
+            flex-direction: column
+        }
+
+        .energy-stats {
+            margin-top: 20px;
+        }
+
+        section {
+            padding: 64px 0
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 8px 28px rgba(33, 33, 33, 0.04)
+        }
+
+        .cta-banner {
+            background: linear-gradient(90deg, rgba(255, 215, 64, 0.12), rgba(76, 175, 80, 0.06));
+            padding: 28px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        footer {
+            padding: 28px 0;
+            color: var(--muted)
+        }
+
+        @media (max-width:980px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .hero-card {
+                order: 2
+            }
+
+            .device {
+                height: 280px
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width:560px) {
+            .nav-links {
+                display: none
+            }
+
+            .features {
+                grid-template-columns: 1fr
+            }
+
+            h1 {
+                font-size: 26px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container nav-inner">
+            <div class="brand">
+                <div class="logo-mark">S<span class="sun">☀️</span>l<span class="arrow">↑</span>ø</div>
+                <div class="logo-text">Sollo — Wir sind über dem Durchschnitt</div>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Produkt</a>
+                <a href="#for-business">Für Unternehmen</a>
+                <a href="#for-home">Für Zuhause</a>
+                <a class="btn" href="#contact">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="hero">
+            <div class="hero-card">
+                <h1>Sollo — das Solarrollo zum Nachrüsten</h1>
+                <p class="lead">Wir sind über dem Durchschnitt. Erzeuge saubere Energie, senke die Klimaanlage-Kosten
+                    und schaffe angenehmen Schatten — ohne aufwändige Umbauten.</p>
+                <div class="cta-row">
+                    <a class="btn" href="#contact">Demo anfragen</a>
+                    <a href="#features">Mehr erfahren</a>
+                </div>
+
+                <div class="features">
+                    <div class="feat">
+                        <strong>Einfach nachrüstbar</strong>
+                        <p class="muted">Passt an bestehende Fenster & Solarrollos — schnell montiert.</p>
+                    </div>
+                    <div class="feat">
+                        <strong>Strom & Schatten</strong>
+                        <p class="muted">Erzeugt Energie während es die Räume kühlt.</p>
+                    </div>
+                    <div class="feat">
+                        <strong>Für Business & Zuhause</strong>
+                        <p class="muted">Skalierbar — von Einfamilienhaus bis Bürogebäude.</p>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="device">
+                <!-- Säulendiagramm Vergleich -->
+                <div class="energy-stats">
+                    <strong>Jahresenergie: Dach-Solar vs. Dach-Solar + Solarrollo</strong>
+
+                    <!-- Überschriften -->
+                    <div style="display:flex;justify-content:space-between;margin-top:16px;">
+                        <div style="flex:1;text-align:center;">Privathaushalt</div>
+                        <div style="flex:1;text-align:center;">Bürogebäude</div>
+                    </div>
+
+                    <!-- Balken -->
+                    <div style="display:flex;justify-content:space-between;margin-top:16px;gap:24px;align-items:flex-end;height:200px;">
+                        <!-- Privathaushalt nur Dach-Solar -->
+                        <div style="flex:1;text-align:center;">
+                            <div style="width:60px;height:140px;margin:0 auto;background:#90CAF9;border-radius:4px 4px 0 0;"></div>
+                            <div style="font-size:12px;color:var(--muted);margin-top:4px;">~1.400 kWh</div>
+                        </div>
+
+                        <!-- Privathaushalt Dach + Solarrollo -->
+                        <div style="flex:1;text-align:center;">
+                            <div style="width:60px;height:170px;margin:0 auto;background:var(--sun);border-radius:4px 4px 0 0;"></div>
+                            <div style="font-size:12px;color:var(--muted);margin-top:4px;">~1.700 kWh</div>
+                        </div>
+
+                        <!-- Bürogebäude nur Dach-Solar -->
+                        <div style="flex:1;text-align:center;">
+                            <div style="width:60px;height:144px;margin:0 auto;background:#81C784;border-radius:4px 4px 0 0;"></div>
+                            <div style="font-size:12px;color:var(--muted);margin-top:4px;">~14.400 kWh</div>
+                        </div>
+
+                        <!-- Bürogebäude Dach + Solarrollo -->
+                        <div style="flex:1;text-align:center;">
+                            <div style="width:60px;height:184px;margin:0 auto;background:var(--green);border-radius:4px 4px 0 0;"></div>
+                            <div style="font-size:12px;color:var(--muted);margin-top:4px;">~18.400 kWh</div>
+                        </div>
+                    </div>
+
+                    <p style="color:var(--muted);font-size:11px;margin-top:6px;">
+                        Balkenvergleich: Für jedes Gebäude links nur Dach-Solar, rechts Dach-Solar + Solarrollo.
+                    </p>
+                </div>
+            </aside>
+        </header>
+
+        <section id="features">
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Wie funktioniert Sollo?</h3>
+                    <p>Unsere Solarrollos integrieren dünne, flexible Solarzellen auf den Lamellen. Die erzeugte Energie
+                        kann direkt in das Hausnetz eingespeist, in Batterien gespeichert oder für die Steuerung (z. B.
+                        Motorisierung) genutzt werden. Montage ist so konzipiert, dass bestehende Fensterrahmen nicht
+                        verändert werden müssen.</p>
+                    <ul>
+                        <li>Plug-&-Play Montage</li>
+                        <li>Intelligente Steuerung (Zeitschaltuhr / Helligkeitssensor / App)</li>
+                        <li>Kompatibel mit gebräuchlichen Rollo-Systemen</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Technische Eckdaten (Beispiel)</h3>
+                    <p><strong>Lamellenbreite:</strong> 50–80 mm • <strong>Leistung pro Lamelle:</strong> ~3–8 W (je
+                        nach Größe) • <strong>Lebenserwartung:</strong> 10–15 Jahre</p>
+                    <p style="color:var(--muted);font-size:13px">(Genauere Spezifikationen werden in der Produktbroschüre aufgeführt.)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="for-business">
+            <h2>Für Unternehmen</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Vorteile für Firmen</h3>
+                    <ul>
+                        <li>Reduzierte Energiekosten für Klima & Beleuchtung</li>
+                        <li>Verbesserung des Nachhaltigkeitsberichts</li>
+                        <li>Skalierbare Installation für große Fassaden</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Referenzkonzepte</h3>
+                    <p>Proof-of-Concept Installationen für Büros, Schulen und Hotels — wir erstellen gern eine
+                        individuelle ROI-Berechnung für Ihr Objekt.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="for-home">
+            <h2>Für Familien & Privat</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Einfache Vorteile im Alltag</h3>
+                    <ul>
+                        <li>Weniger Stromkosten im Sommer</li>
+                        <li>Mehr Privatsphäre und angenehme Raumtemperatur</li>
+                        <li>Modernes Design, einfache Steuerung per App (geplant)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Fördermöglichkeiten</h3>
+                    <p>Viele Energieberatungen und staatliche Förderprogramme unterstützen Nachrüstlösungen — wir helfen beim Antrag.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="cta-banner">
+                <div>
+                    <strong>Interesse geweckt?</strong>
+                    <p style="margin:4px 0;color:var(--muted)">Fordern Sie eine kostenlose Erstberatung oder Demo an —
+                        wir melden uns innerhalb von 48 Stunden.</p>
+                </div>
+                <div>
+                    <a class="btn" href="#contact">Jetzt Kontakt aufnehmen</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <form onsubmit="event.preventDefault();alert('Danke — Anfrage gesendet (Demo).');">
+                        <label style="display:block;margin-bottom:8px">Name</label>
+                        <input required
+                            style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-bottom:10px" />
+                        <label style="display:block;margin-bottom:8px">E-Mail</label>
+                        <input type="email" required
+                            style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-bottom:10px" />
+                        <label style="display:block;margin-bottom:8px">Firma / Straße (optional)</label>
+                        <input
+                            style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-bottom:10px" />
+                        <label style="display:block;margin-bottom:8px">Nachricht</label>
+                        <textarea required
+                            style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-bottom:10px"></textarea>
+                        <button type="submit" class="btn">Senden</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <p>Adresse, Telefon, E-Mail oder weitere Hinweise können hier stehen.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p style="margin:0;text-align:center">© 2025 Sollo – Alle Rechte vorbehalten</p>
+        </div>
+    </footer>
+</body>
+
+</html>
