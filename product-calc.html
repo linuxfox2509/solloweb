@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <title>Sollo Solarrechner</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: #f7f8fb;
+            color: #212121;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(33,33,33,0.08);
+            padding: 32px;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        .btn {
+            margin-top: 24px;
+            background: #212121;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+        .result {
+            margin-top: 28px;
+            background: #f1f8e9;
+            border-radius: 8px;
+            padding: 18px;
+            color: #212121;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sollo Solarrechner</h1>
+        <form id="calcForm">
+            <label for="strompreis">Ihr Strompreis (ct/kWh):</label>
+            <input type="number" id="strompreis" name="strompreis" min="0" step="0.1" required>
+
+            <label for="verbrauch">Ihr Stromverbrauch pro Jahr (kWh):</label>
+            <input type="number" id="verbrauch" name="verbrauch" min="0" step="1" required>
+
+            <label for="rollos">Anzahl der Sollo-Rollos:</label>
+            <input type="number" id="rollos" name="rollos" min="1" step="1" required>
+
+            <button type="submit" class="btn">Berechnen</button>
+        </form>
+        <div id="result" class="result" style="display:none;"></div>
+    </div>
+    <script>
+        document.getElementById('calcForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const strompreis = parseFloat(document.getElementById('strompreis').value);
+            const verbrauch = parseFloat(document.getElementById('verbrauch').value);
+            const rollos = parseInt(document.getElementById('rollos').value);
+
+            const kwhErsparnis = rollos * 112;
+            const kostenErsparnis = kwhErsparnis * strompreis / 100;
+            let anteil = verbrauch > 0 ? (kwhErsparnis / verbrauch * 100).toFixed(1) : 0;
+
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').innerHTML = `
+                <strong>Ihre jährliche Ersparnis:</strong><br>
+                <ul>
+                    <li><b>${kwhErsparnis}</b> kWh Strom</li>
+                    <li><b>${kostenErsparnis.toFixed(2)}</b> €</li>
+                    <li>Das sind <b>${anteil}%</b> Ihres Jahresverbrauchs.</li>
+                </ul>
+            `;
+        });
+    </script>
+</body>
+</html>
