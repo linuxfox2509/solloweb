@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sollo kaufen</title>
+    <style>
+        body { background: #f7f8fb; color: #212121; font-family: 'Poppins', system-ui, Arial; margin: 0; }
+        .container { max-width: 600px; margin: 48px auto; background: #fff; border-radius: 12px; box-shadow: 0 8px 28px rgba(33,33,33,0.04); padding: 32px; }
+        h1 { font-size: 28px; margin-bottom: 18px; }
+        label { display:block; margin-bottom:8px; }
+        input, select { width:100%; padding:10px; border-radius:8px; border:1px solid #e6e6e6; margin-bottom:14px; }
+        button { background: #212121; color: #fff; padding: 10px 18px; border-radius: 10px; border: none; cursor: pointer; }
+        .muted { color: #6b6b6b; font-size: 14px; margin-bottom: 18px; }
+        .price-box { background: #f7f8fb; border-radius: 8px; padding: 12px; margin-bottom: 18px; font-size: 16px; }
+    </style>
+    <script>
+        // Preise pro Produkt und Typ
+        const prices = {
+            install: { fenster: 600, tuer: 800 },
+            retrofit: { fenster: 200, tuer: 400 }
+        };
+
+        function updatePrice() {
+            const params = new URLSearchParams(window.location.search);
+            const product = params.get('product');
+            const type = document.getElementById('type').value;
+            const menge = parseInt(document.getElementById('menge').value) || 1;
+            let price = 0;
+            if (prices[product] && prices[product][type]) {
+                price = prices[product][type] * menge;
+            }
+            document.getElementById('price').textContent = `Gesamtpreis: ${price.toLocaleString('de-DE')} €`;
+        }
+
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const product = params.get('product');
+            let productName = '';
+            let infoText = '';
+            if (product === 'install') {
+                productName = 'Sollo zum Einbau';
+                infoText = '600 € pro Fenster, 800 € pro Tür';
+            } else if (product === 'retrofit') {
+                productName = 'Nachrüstkit';
+                infoText = '200 € pro Fenster, 400 € pro Tür';
+            } else {
+                productName = 'Produkt auswählen';
+                infoText = '';
+            }
+            document.getElementById('productName').textContent = productName;
+            document.getElementById('productInfo').textContent = infoText;
+            updatePrice();
+            document.getElementById('type').addEventListener('change', updatePrice);
+            document.getElementById('menge').addEventListener('input', updatePrice);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sollo kaufen</h1>
+        <div class="muted">
+            Bitte geben Sie Ihre Daten ein, wählen Sie das gewünschte Produkt und die Menge. Nach dem Klick auf „Jetzt bezahlen“ werden Sie zur Zahlungsabwicklung weitergeleitet.
+        </div>
+        <form onsubmit="event.preventDefault();alert('Danke – Ihre Bestellung wurde gesendet!');">
+            <label>Produkt</label>
+            <div style="font-weight:bold;margin-bottom:6px" id="productName"></div>
+            <div class="muted" id="productInfo"></div>
+            <label>Typ *</label>
+            <select required name="type" id="type">
+                <option value="fenster">Fenster</option>
+                <option value="tuer">Tür</option>
+            </select>
+            <label>Menge *</label>
+            <input type="number" name="menge" id="menge" min="1" value="1" required />
+            <div class="price-box" id="price"></div>
+            <label>Name *</label>
+            <input required name="name" />
+            <label>Adresse *</label>
+            <input required name="adresse" />
+            <label>E-Mail *</label>
+            <input type="email" required name="email" />
+            <label>Telefonnummer (optional)</label>
+            <input name="telefon" />
+            <button type="submit">Jetzt bezahlen</button>
+        </form>
+    </div>
+</body>
+</html>
