@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sollo — Kundenbewertungen</title>
+    <meta name="description" content="Kundenbewertungen für Sollo." />
+    <style>
+        :root{--sun:#FFD740;--green:#4CAF50;--dark:#212121;--muted:#6b6b6b;--bg:#f7f8fb;--maxw:1100px;--radius:12px;font-family:'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+        *{box-sizing:border-box}
+        body{margin:0;background:var(--bg);color:var(--dark);line-height:1.5}
+        .container{max-width:var(--maxw);margin:0 auto;padding:24px}
+        nav{background:white;box-shadow:0 6px 20px rgba(33,33,33,0.06)}
+        .nav-inner{display:flex;align-items:center;justify-content:space-between}
+        .brand{display:flex;gap:12px;align-items:center}
+        .btn{background:linear-gradient(90deg,var(--sun),var(--green));color:var(--dark);font-weight:600;border-radius:12px;padding:10px 20px;text-decoration:none}
+        header{padding:28px 0}
+        h1{margin:0 0 8px}
+        p.lead{color:var(--muted);margin:0 0 18px}
+        .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+        .review{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 28px rgba(33,33,33,0.04);display:flex;gap:14px}
+        .avatar{width:64px;height:64px;border-radius:999px;background:linear-gradient(180deg,#f0f0f0,#e8e8e8);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted)}
+        .rev-body{flex:1}
+        .stars{color:var(--sun);font-weight:700}
+        .meta{font-size:13px;color:var(--muted);margin-top:6px}
+        .badge-demo{display:inline-block;padding:6px 10px;border-radius:999px;background:#fff6d6;color:#6b4b00;border:1px dashed #ffd740;font-weight:700;margin-bottom:12px}
+        @media(max-width:800px){.reviews-grid{grid-template-columns:1fr}}
+
+        nav {
+            background: white;
+            box-shadow: 0 6px 20px rgba(33, 33, 33, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 40
+        }
+
+        .container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 24px
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+        
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .logo-mark {
+            font-weight: 700;
+            font-size: 20px
+        }
+
+        .logo-mark .sun {
+            color: var(--sun)
+        }
+
+        .logo-mark .arrow {
+            transform: translateY(-3px);
+            font-weight: 900
+        }
+
+        .logo-text {
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            align-items: center
+        }
+
+        .btn {
+            background: var(--dark);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 10px;
+            text-decoration: none
+        }
+
+        .nav-links .btn {
+            background: linear-gradient(90deg, var(--sun), var(--green));
+            color: var(--dark);
+            font-weight: 600;
+            border: none;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.10);
+            border-radius: 12px;
+            padding: 10px 20px;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+        }
+
+        .nav-links .btn:hover,
+        .nav-links .btn:focus {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 6px 18px rgba(76, 175, 80, 0.18);
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .nav-links .nav-link {
+            padding: 8px 14px;
+            border-radius: 8px;
+            color: var(--dark);
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .nav-links .nav-link:hover,
+        .nav-links .nav-link:focus {
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        /* Navbar Buttons und Links mit schwarzem Rahmen bei Hover, grüne Schrift */
+        .nav-links .btn,
+        .nav-links .nav-link {
+            background: white;
+            color: var(--dark);
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 20px;
+            transition: border 0.2s, color 0.2s;
+            box-shadow: none;
+            text-decoration: none;
+        }
+
+        .nav-links .btn:hover,
+        .nav-links .btn:focus,
+        .nav-links .nav-link:hover,
+        .nav-links .nav-link:focus {
+            border: 2px solid var(--dark);
+            color: var(--green);
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container nav-inner">
+            <div class="brand">
+                <a href="index.html#" style="display:flex;gap:12px;align-items:center;text-decoration:none;">
+                    <div class="logo-mark">
+                        <img src="images/logo.png" alt="Sollo - Wir sind über dem Durchschnitt" style="height:58px; width:auto;">
+                    </div>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#for-business" class="nav-link">Für Unternehmen</a>
+                <a href="index.html#for-home" class="nav-link">Für Zuhause</a>
+                <a href="index.html#products" class="nav-link">Produktübersicht</a>
+                <a class="btn" href="index.html#contact">Kontakt</a>
+                <span style="margin-left:18px"></span>
+                <a href="https://github.com/linuxfox2509/solloweb" target="_blank" title="GitHub" class="nav-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"
+                        style="height:20px;width:20px;filter:invert(0);" />
+                </a>
+                <a href="https://instagram.com/sollo_dassolarrollo" target="_blank" title="Instagram" class="nav-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"
+                        style="height:20px;width:20px;" />
+                </a>
+                <a href="https://wa.me/491776889444" target="_blank" title="WhatsApp" class="nav-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp"
+                        style="height:20px;width:20px;" />
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>Kundenbewertungen</h1>
+        </header>
+
+        <section class="reviews-grid">
+            <article class="review">
+                <div class="avatar">MK</div>
+                <div class="rev-body">
+                    <div class="stars">★★★★★</div>
+                    <strong>Max K., Stuttgart</strong>
+                    <div class="meta">3. Juli 2025 · Sollo Nachrüstkit (Fenster)</div>
+                    <p style="margin-top:8px;color:var(--muted)">Montage war super einfach. Wir sparen im Sommer deutlich bei der Klimaanlage — klare Empfehlung.</p>
+                </div>
+            </article>
+
+            <article class="review">
+                <div class="avatar">LS</div>
+                <div class="rev-body">
+                    <div class="stars">★★★★☆</div>
+                    <strong>Laura S., Böblingen</strong>
+                    <div class="meta">21. Mai 2025 · Sollo für Unternehmen (Büro)</div>
+                    <p style="margin-top:8px;color:var(--muted)">Gute Energieausbeute und schicker Look. Die Steuerung per App fehlt noch, wird aber angekündigt.</p>
+                </div>
+            </article>
+
+            <article class="review">
+                <div class="avatar">AH</div>
+                <div class="rev-body">
+                    <div class="stars">★★★★★</div>
+                    <strong>Anna H., Tübingen</strong>
+                    <div class="meta">12. August 2025 · Solllo Einbau (Terrassentür)</div>
+                    <p style="margin-top:8px;color:var(--muted)">Sehr netter Kundenservice und saubere Arbeit beim Einbau. Wir sind zufrieden mit der Energieerzeugung.</p>
+                </div>
+            </article>
+
+            <article class="review">
+                <div class="avatar">RB</div>
+                <div class="rev-body">
+                    <div class="stars">★★★☆☆</div>
+                    <strong>R. Beck, Ulm</strong>
+                    <div class="meta">5. Juni 2025 · Nachrüstkit</div>
+                    <p style="margin-top:8px;color:var(--muted)">Funktioniert gut, aber bei unserem alten Rollo war die Anpassung etwas fummelig. Support hat geholfen.</p>
+                </div>
+            </article>
+
+            <article class="review">
+                <div class="avatar">JM</div>
+                <div class="rev-body">
+                    <div class="stars">★★★★★</div>
+                    <strong>Julius M., Herrenberg</strong>
+                    <div class="meta">28. April 2025 · Sollo auf Maß</div>
+                    <p style="margin-top:8px;color:var(--muted)">Perfekte Lösung für ungewöhnliche Fenster. Angebot kam schnell und passte genau.</p>
+                </div>
+            </article>
+
+            <article class="review">
+                <div class="avatar">EK</div>
+                <div class="rev-body">
+                    <div class="stars">★★★★☆</div>
+                    <strong>Eva K., Stuttgart</strong>
+                    <div class="meta">17. März 2025 · Sollo Nachrüstkit</div>
+                    <p style="margin-top:8px;color:var(--muted)">Sieht gut aus und funktioniert. Lieferung dauerte etwas länger, ansonsten top.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="text-align:center; font-size:0.95em; color:#6b6b6b; padding:24px 0;">
+            &copy; 2025 Sollo. Alle Rechte vorbehalten. |
+            <a href="agb.html">AGB</a> |
+            <a href="datenschutz.html">Datenschutz</a> |
+            <a href="impressum.html">Impressum</a>
+        </div>
+    </footer>
+</body>
+
+</html>
