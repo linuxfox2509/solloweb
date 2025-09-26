@@ -13,7 +13,7 @@
             padding: 0;
         }
         .container {
-            max-width: 500px;
+            max-width: 550px;
             margin: 40px auto;
             background: white;
             border-radius: 12px;
@@ -60,14 +60,15 @@
     </style>
 </head>
 <body>
+    <a href="index.html" style="position: absolute; left: 24px; top: 24px; background: #212121; color: #fff; padding: 8px 18px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 1rem;">← Zurück zu Sollo</a>
     <div class="container">
         <h1>Sollo Solarrechner</h1>
         <form id="calcForm">
-            <label for="strompreis">Ihr Strompreis (ct/kWh):</label>
-            <input type="number" id="strompreis" name="strompreis" min="0" step="0.1" required>
+            <label for="wohnflaeche">Wohnfläche (m²):</label>
+            <input type="number" id="wohnflaeche" name="wohnflaeche" min="10" step="1" required>
 
-            <label for="verbrauch">Ihr Stromverbrauch pro Jahr (kWh):</label>
-            <input type="number" id="verbrauch" name="verbrauch" min="0" step="1" required>
+            <label for="personen">Anzahl der Personen im Haushalt:</label>
+            <input type="number" id="personen" name="personen" min="1" step="1" required>
 
             <label for="rollos">Anzahl der Sollo-Rollos:</label>
             <input type="number" id="rollos" name="rollos" min="1" step="1" required>
@@ -76,25 +77,39 @@
         </form>
         <div id="result" class="result" style="display:none;"></div>
     </div>
+
     <script>
         document.getElementById('calcForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const strompreis = parseFloat(document.getElementById('strompreis').value);
-            const verbrauch = parseFloat(document.getElementById('verbrauch').value);
+
+            const wohnflaeche = parseFloat(document.getElementById('wohnflaeche').value);
+            const personen = parseInt(document.getElementById('personen').value);
             const rollos = parseInt(document.getElementById('rollos').value);
 
-            const kwhErsparnis = rollos * 112;
-            const kostenErsparnis = kwhErsparnis * strompreis / 100;
-            let anteil = verbrauch > 0 ? (kwhErsparnis / verbrauch * 100).toFixed(1) : 0;
+            // Annahmen:
+            const kwhProM2 = 9;        // kWh pro m² Wohnfläche
+            const kwhProPerson = 500;  // kWh pro Person
+            const kwhProRollo = 112;   // kWh pro Sollo-Rollo
+            const strompreis = 0.32;   // €/kWh (Durchschnitt DE 2025)
+
+            // Verbrauchsberechnung
+            const verbrauch = (wohnflaeche * kwhProM2) + (personen * kwhProPerson);
+
+            // Ersparnis durch Rollos
+            const kwhErsparnis = rollos * kwhProRollo;
+            const kostenErsparnis = kwhErsparnis * strompreis;
+            const anteil = verbrauch > 0 ? (kwhErsparnis / verbrauch * 100).toFixed(1) : 0;
 
             document.getElementById('result').style.display = 'block';
             document.getElementById('result').innerHTML = `
-                <strong>Ihre jährliche Ersparnis:</strong><br>
+                <strong>Ihr Ergebnis:</strong><br>
                 <ul>
-                    <li><b>${kwhErsparnis}</b> kWh Strom</li>
-                    <li><b>${kostenErsparnis.toFixed(2)}</b> €</li>
-                    <li>Das sind <b>${anteil}%</b> Ihres Jahresverbrauchs.</li>
+                    <li><b>${verbrauch.toFixed(0)}</b> kWh geschätzter Jahresverbrauch</li>
+                    <li><b>${kwhErsparnis.toFixed(0)}</b> kWh Erzeugung durch Sollo-Rollos</li>
+                    <li><b>${kostenErsparnis.toFixed(2)} €</b> jährliche Kostenersparnis</li>
+                    <li>Ersparnis: <b>${anteil}%</b> Ihres Verbrauchs</li>
                 </ul>
+                <p style="font-size:0.9rem;color:#6b6b6b">Berechnung basiert auf Durchschnittswerten: ${kwhProM2} kWh/m², ${kwhProPerson} kWh/Person, ${kwhProRollo} kWh/Rollo und ${strompreis.toFixed(2)} €/kWh.</p>
             `;
         });
     </script>
